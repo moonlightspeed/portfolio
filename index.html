@@ -117,18 +117,21 @@
             <section class="fade-in">
                 <h2 class="text-2xl font-bold uppercase mb-6 border-b-2 border-black inline-block pb-1">PROJECTS</h2>
 
-                <div class="flex flex-wrap gap-6 border-b border-gray-200 pb-3 text-base md:text-lg">
+                <div class="flex flex-wrap gap-8 md:gap-12 border-b border-gray-200 text-base md:text-lg">
                     <button onclick="openTab('film')" id="btn-film" 
-                        class="tab-btn font-bold text-black border-b-2 border-black pb-2 -mb-3.25 relative z-10">Film
-                        & TVC</button>
+                        class="tab-btn font-bold text-black border-b-2 border-black pb-3 -mb-px whitespace-nowrap">Film & TVC</button>
+                    
                     <button onclick="openTab('2dgraphics')" id="btn-2dgraphics"
-                        class="tab-btn font-normal text-gray-500 hover:text-black pb-2">2D Graphics</button>
+                        class="tab-btn font-normal text-gray-500 border-b-2 border-transparent hover:text-black pb-3 -mb-px whitespace-nowrap">2D Graphics</button>
+                    
                     <button onclick="openTab('2dmotion')" id="btn-2dmotion"
-                        class="tab-btn font-normal text-gray-500 hover:text-black pb-2">2D Motion</button>
+                        class="tab-btn font-normal text-gray-500 border-b-2 border-transparent hover:text-black pb-3 -mb-px whitespace-nowrap">2D Motion</button>
+                    
                     <button onclick="openTab('uiux')" id="btn-uiux"
-                        class="tab-btn font-normal text-gray-500 hover:text-black pb-2">UI/UX</button>
+                        class="tab-btn font-normal text-gray-500 border-b-2 border-transparent hover:text-black pb-3 -mb-px whitespace-nowrap">UI/UX</button>
+                    
                     <button onclick="openTab('others')" id="btn-others"
-                        class="tab-btn font-normal text-gray-500 hover:text-black pb-2">Others</button>
+                        class="tab-btn font-normal text-gray-500 border-b-2 border-transparent hover:text-black pb-3 -mb-px whitespace-nowrap">Others</button>
                 </div>
 
                 <div id="film" class="tab-content mt-10 ml-6">
@@ -167,15 +170,15 @@
                             <div class="flex flex-col md:flex-row md:items-center gap-2">
                                 <span class="text-lg font-bold">Short film: Loi nguyen 53-03</span>
                                 <span class="hidden md:inline-block w-8 border-b border-gray-400"></span>
-                                <a href="https://www.behance.net/gallery/242379515/53-03-Short-Funny-Horror-Film"
-                                    target="_blank" rel="noopener noreferrer"
-                                    class="text-lg font-normal underline hover:text-gray-600 transition-colors">Click to
+                                <a href="https://www.behance.net/gallery/242379515/53-03-Short-Funny-Horror-Film" target="_blank"
+                                    rel="noopener noreferrer" class="text-lg font-normal underline hover:text-gray-600 transition-colors">Click
+                                    to
                                     watch</a>
                             </div>
                             <p class="text-gray-500 mt-2 font-normal">Edit, VFX, Filming</p>
-                            <div class="mt-4">
+                            <div class="mt-4 max-w-119.25">
                                 <img src="srccc/5303.png" alt="Project Preview"
-                                    class="w-full max-w-119.25 h-41.25 object-cover rounded-lg border border-gray-200">
+                                    class="w-full aspect-video object-cover rounded-lg border border-gray-200">
                             </div>
                         </li>
                         <li class="tree-node relative">
@@ -460,15 +463,20 @@
 
         // 2. Tab Works
         function openTab(tabName) {
+            // Ẩn tất cả nội dung
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+            
+            // Ép TẤT CẢ các nút về trạng thái mặc định (chữ xám, viền tàng hình)
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('font-bold', 'text-black', 'border-b-2', 'border-black', '-mb-[13px]', 'relative', 'z-10');
-                btn.classList.add('font-normal', 'text-gray-500');
+                btn.className = "tab-btn font-normal text-gray-500 border-b-2 border-transparent hover:text-black pb-3 -mb-[1px] whitespace-nowrap";
             });
+            
+            // Hiện nội dung tab được chọn
             document.getElementById(tabName).classList.remove('hidden');
+            
+            // Ép nút được chọn lên trạng thái Active (Chữ đen, in đậm, viền đen và nổi lên trên cùng bằng z-10)
             let activeBtn = document.getElementById('btn-' + tabName);
-            activeBtn.classList.add('font-bold', 'text-black', 'border-b-2', 'border-black', '-mb-[13px]', 'relative', 'z-10');
-            activeBtn.classList.remove('font-normal', 'text-gray-500');
+            activeBtn.className = "tab-btn font-bold text-black border-b-2 border-black pb-3 -mb-[1px] relative z-10 whitespace-nowrap";
         }
 
         // 3. Logic Ngôi sao: Đã thêm chốt an toàn
