@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  /* Thiết lập font chữ theo yêu cầu của bạn */
+  --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+  /* Bạn có thể thêm các biến màu sắc tại đây nếu cần */
+}
+
+body {
+  font-family: var(--font-helvetica);
+}
